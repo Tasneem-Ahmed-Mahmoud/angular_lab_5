@@ -1,0 +1,31 @@
+
+<div class="container  mt-5 pt-5">
+
+<!-- <p class="text-dager">Cart({{totalItems}})</p> -->
+<div class="shadow p-3">
+  <table class="table  table-border  p-3">
+    <thead>
+<th scope="col">Image</th>
+<th scope="col"> Name</th>
+<th scope="col">Price</th>
+<th   scope="col">Quantity</th>
+<th scope="col">Action</th>
+    </thead>
+    <tbody>
+     <tr *ngFor="let item of product">
+      <td><img src="{{item.image}}" alt="" srcset="" style="width: 100px;height: 100px;">  </td>
+      <td> {{item.title}}</td>
+      <td> {{item.totalPrice}} EGP</td>
+      <td>
+        <i class="fa-solid fa-minus fs-3" (click)="minus(item)"></i>
+         <span class="mx-4">{{item.quantity}}</span>
+        <i class="fa-solid fa-plus  fs-3" (click)="plus(item)"></i>
+      </td>
+      <td>  <i class="fa-regular fa-trash-can text-danger fs-3"  (click)="removeItem(item)"></i>  </td>
+     </tr>
+    </tbody>
+  </table>
+</div>
+<p class=" my-4 text-end" *ngIf="grandTotal>0">Total Price :  {{grandTotal}}EGP</p>
+  </div>
+

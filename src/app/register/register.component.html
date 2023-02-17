@@ -1,0 +1,77 @@
+
+<div class="container ">
+  <div class="row justify-content-center align-items-center  vh-100" >
+
+
+
+              <form class="w-50 border border-2  p-5"    [formGroup]="registerForm"  (ngSubmit)="submitRegisterForm()">
+                 <!-- name -->
+              <div class="form-outline mb-4">
+                        <div class="alert alert-danger"        *ngIf="registerForm.get('name')?.errors != null  && registerForm.get('name')?.touched ">
+                       <p  *ngIf="registerForm.controls['name'].hasError('required')">Name is required</p>
+
+                       </div>
+                <label class="form-label" for="form3Example1cg">Your Name</label>
+                <input type="text" id="form3Example1cg" class="form-control form-control-lg" formControlName="name" />
+              </div>   <!-- end name -->
+
+                        <!-- username -->
+              <div class="form-outline mb-4">
+                <div class="alert alert-danger"   *ngIf="registerForm.get('username')?.errors != null  && registerForm.get('username')?.touched ">
+                  <p *ngIf="registerForm.controls['username'].hasError('required')">UserName is required</p>
+                  <p *ngIf="registerForm.controls['username'].hasError('pattern')"> no contains space</p>
+                </div>
+                <label class="form-label" for="form3Example1cg">User Name</label>
+                <input type="text" id="form3Example1cg" class="form-control form-control-lg" formControlName="username" />
+
+              </div> <!-- end username -->
+                       <!-- email -->
+              <div class="form-outline mb-4">
+                <div class="alert alert-danger" *ngIf="registerForm.get('email')?.errors != null  && registerForm.get('email')?.touched ">
+                  <p *ngIf="registerForm.controls['email'].hasError('required')">Email is required</p>
+                  <p *ngIf="registerForm.controls['email'].hasError('email')">invalid email </p>
+                </div>
+                <label class="form-label" for="form3Example3cg">Your Email</label>
+                <input type="email" id="form3Example3cg" class="form-control form-control-lg" formControlName="email"/>
+
+              </div> <!-- end email -->
+
+
+                               <!-- password -->
+              <div class="form-outline mb-4">
+                <div class="alert alert-danger" *ngIf="registerForm.get('password')?.errors != null  && registerForm.get('password')?.touched ">
+                  <p *ngIf="registerForm.controls['password'].hasError('required')">password is required</p>
+                  <p *ngIf="registerForm.controls['password'].hasError('minlength')">password must be at least  8 char </p>
+                  <!-- <p *ngIf="registerForm.controls['password'].hasError('pattern')"> password must contains at least one lowercase , one uppercase and one digit and one of any spicial char</p> -->
+
+                </div>
+                <label class="form-label" for="form3Example4cg">Password</label>
+                <input type="password" id="form3Example4cg" class="form-control form-control-lg"   formControlName="password"/>
+
+              </div>   <!-- end password -->
+                                    <!-- confirm password -->
+              <div class="form-outline mb-4">
+                <div class="alert alert-danger"   *ngIf="registerForm.get('confirmPassword')?.errors != null  && registerForm.get('confirmPassword')?.touched" >
+
+                  <p *ngIf="registerForm.controls['confirmPassword'].hasError('required')">confirm password is required</p>
+                  </div>
+                <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                <input type="password" id="form3Example4cdg" class="form-control form-control-lg" formControlName="confirmPassword" />
+
+              </div>   <!-- end confirm password -->
+
+
+              <div class="d-flex justify-content-center">
+
+                <button type="submit"  class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"  [disabled]="registerForm.invalid"  >Register</button>
+              </div>
+
+              <p class="text-center text-muted mt-5 mb-0">Have already an account? <button (click)="login()"
+                  class="fw-bold text-body"><u>Login here</u></button></p>
+
+            </form>
+
+          </div>
+        </div>
+<!--  -->
+
